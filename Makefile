@@ -5,8 +5,8 @@ build: generate
 generate:
 	templ generate ./internal/components
 
-test:
+test: generate
 	go test -v ./... -race
 
-run:
+run: generate
 	go run ./cmd/templ-htmx
