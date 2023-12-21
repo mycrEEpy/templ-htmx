@@ -1,4 +1,4 @@
-build: generate
+build: tidy generate
 	mkdir -p dist
 	go build -o ./dist/templ-htmx ./cmd/templ-htmx
 
@@ -8,5 +8,8 @@ generate:
 test: generate
 	go test -v ./... -race
 
-run: generate
+run: tidy generate
 	go run ./cmd/templ-htmx
+
+tidy:
+	go mod tidy
